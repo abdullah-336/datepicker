@@ -5376,6 +5376,11 @@ vue-bundle-renderer@^2.0.0:
   dependencies:
     ufo "^1.2.0"
 
+vue-calendar-3@^2.6.6:
+  version "2.6.6"
+  resolved "https://registry.yarnpkg.com/vue-calendar-3/-/vue-calendar-3-2.6.6.tgz#88671531718289dd60efc80aa9a563a6335367be"
+  integrity sha512-k1FwhP6Dy62nbrmLzI2MHTtR5zq0RtW2v95EUSiiIz5hOw5BmmrYvvvl0fE7/14Lfn5cv5s9+WmIJFj09J8HhQ==
+
 vue-demi@>=0.14.7:
   version "0.14.7"
   resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.14.7.tgz#8317536b3ef74c5b09f268f7782e70194567d8f2"
