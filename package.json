@@ -10,9 +10,12 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "bootstrap": "^5.3.3",
+    "bootstrap-vue": "^2.23.1",
     "nuxt": "^3.11.1",
     "vue": "^3.4.21",
     "vue-calendar-3": "^2.6.6",
+    "vue-hotel-datepicker": "^4.6.0",
     "vue-router": "^4.3.0"
   }
 }

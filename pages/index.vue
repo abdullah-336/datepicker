@@ -1,20 +1,22 @@
 <script setup lang="js">
 import { ref } from "vue";
 import { Calendar } from "vue-calendar-3";
+import {HotelDatePicker} from 'vue-hotel-datepicker'
+import 'vue-hotel-datepicker/dist/vueHotelDatepicker.css';
 
 const checkIn = ref(null);
 const checkOut = ref(null);
 const placeholder = { checkIn: "check-in", checkOut: "check-out", }
 const startDate = new Date('25-12-2024')
 
-const bookedDates = ref([
+const bookedDates = [
   "2024-06-01",
   "2024-06-02",
   "2024-06-03",
   "2024-06-23",
   "2024-06-24",
   "2024-06-25",
-]);
+];
 
 function nextDate() {
   console.log('hello next date')
@@ -41,30 +43,34 @@ function clearDates() {
   // Implement your method logic here
 }
 
-const en = {
-  clearDates: "Clear dates",
-  close: "Close",
-  days: {
-    monday: "Mo",
-    tuesday: "Tu",
-    wednesday: "We",
-    thursday: "Th",
-    friday: "Fr",
-    saturday: "Sa",
-    sunday: "Su",
+const computedLocale = ref(null)
+
+
+const en = ref([
+  {clearDates: "Clear dates",},
+  {close: "Close",},
+  { days: {
+      monday: "Mo",
+      tuesday: "Tu",
+      wednesday: "We",
+      thursday: "Th",
+      friday: "Fr",
+      saturday: "Sa",
+      sunday: "Su",
+    },
   },
-  today: "Today",
-  periodType: {
+  {today: "Today",},
+  {periodType: {
     weeklyBySaturday: "From Saturday to Saturday",
     weeklyBySunday: "From Sunday to Sunday",
     weeklyByMonday: "From Monday to Monday",
     nightly: "A minimum of %{minimumDuration} night is required",
-  },
-  halfDay: {
+  },},
+  {halfDay: {
     checkIn: "Possible end of stay",
     checkOut: "Possible start of stay",
-  },
-}
+  },},
+])
 
 const periodDates = ref([
   // Nightly
@@ -100,12 +106,12 @@ const periodDates = ref([
     <Calendar
     v-model:checkIn="checkIn"
     v-model:checkOut="checkOut"
-    :SingleCalendar='!true'
     :alwaysVisible="!true"
+    :SingleCalendar=true
     :hasFooter="true"
     :placeholder="placeholder"
     :periodDates="periodDates"
-    :i18n=en
+    :locale="`en`"
     :BookedDates=bookedDates
     @render-next-date="nextDate()"
     @render-previous-date="previousDate()"
@@ -115,6 +121,7 @@ const periodDates = ref([
     Timezone="Europe/Paris"
     />
   </div>
+   <HotelDatePicker/>
 </template>
 
 <style>
